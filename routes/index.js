@@ -27,11 +27,11 @@ router.get('/check-cookie', function(req, res, next) {
   console.log(req.headers);
   if(req.headers.cookie && req.headers.cookie.includes('cokkieName')){
     console.log('enabled')
-    res.send('enabled');
+    res.send({ enabled: true });
   }
   else{
     console.log('disabled');
-    res.send("disabled")
+    res.send({ enabled: false });
   }
 });
 
