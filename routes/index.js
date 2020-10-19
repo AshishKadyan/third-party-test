@@ -5,6 +5,9 @@ var router = express.Router();
 /* GET home page. */
 router.get('/set-cookie', function(req, res, next) {
   try {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.cookie('cokkieName','secret', {  secure:true ,sameSite:'none'})
     console.log('cookie have created successfully');
     res.send();
@@ -16,6 +19,9 @@ router.get('/set-cookie', function(req, res, next) {
 
 
 router.get('/check-cookie', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
   console.log('checking');
   console.log(req.headers);
   if(req.headers.cookie && req.headers.cookie.includes('cokkieName')){
