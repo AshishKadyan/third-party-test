@@ -17,7 +17,8 @@ router.get('/set-cookie', function(req, res, next) {
 
 router.get('/check-cookie', function(req, res, next) {
   console.log('checking');
-  if(req.headers.cokkiename){
+  console.log(req.headers);
+  if(req.headers.cokkieName){
     console.log('enabled')
     res.send('enabled');
   }
